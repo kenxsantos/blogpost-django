@@ -1,0 +1,20 @@
+{% load static tailwind_tags%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog Post</title>
+    <meta name="description" content="My Personal Blog Description" />
+    {% tailwind_css %}
+  </head>
+  <body class="container mx-auto">
+    {% include "navbar.html" %}
+        {% block page_title %}
+        {% endblock page_title %}
+        {% block page_content %}
+        {% endblock page_content %}
+      </div>
+    </div> 
+  </body>
+
+</html>

@@ -1,0 +1,33 @@
+<div class="bg-white mb-12">
+    <div class="container mx-auto">
+      <div class="flex justify-between items-center py-6">
+        <a class="text-black text-3xl font-bold font-karma" href="{% url 'blog_index' %}">
+          Ken
+        </a>
+        <!-- Toggle button for responsive navbar -->
+        <button class="text-white xl:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <!-- Nav Links -->
+        <ul class="hidden xl:flex space-x-12 text-white font-semibold">
+          <li><a class="hover:text-gray-200 text-black font-karma" href="{% url 'blog_index' %}">Post</a></li>
+          <li><a class="hover:text-gray-200 text-black font-karma" href="#">Trending</a></li>     
+        </ul>
+        <!-- Header Icons -->
+        <div class="hidden xl:flex items-center space-x-5 text-white">
+          {% if request.user.is_authenticated %}
+          <p class="text-black">{{ request.user.username }}</p>
+          <button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">
+              <a href="{% url 'logout' %}" >Logout</a>
+          </button>
+          {% else %}
+          <a href="{% url 'login' %}" class="text-black">Login</a>
+          <a href="{% url 'signup' %}" class="text-black">Signup</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  
