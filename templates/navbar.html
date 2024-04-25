@@ -16,12 +16,18 @@
         <li>
           <a class="hover:text-gray-200 text-black font-karma" href="#">Trending</a>
         </li>
+        <li>
+          <a class="hover:text-gray-200 text-black font-karma" href="#">Bookmarks</a>
+        </li>
       </ul>
       <!-- Header Icons -->
       <div class="hidden xl:flex items-center space-x-5 text-white">
         {% if request.user.is_authenticated %}
           <p class="text-black">{{ request.user.username }}</p>
-          <button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"><a href="{% url 'logout' %}">Logout</a></button>
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"><a href="{% url 'logout' %}">Logout</a></button>
+          </form>
         {% else %}
           <a href="{% url 'login' %}" class="text-black">Login</a>
           <a href="{% url 'signup' %}" class="text-black">Signup</a>

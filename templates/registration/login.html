@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block page_title %}
+  <div class="container flex">
+    <h2 class="text-7xl font-bold font-karma">Log In</h2>
+  </div>
+{% endblock %} {% block page_content %}
+  {% load static %}
+  <div class="container flex items-center mb-4 gap-4 p-4">
+    <div class="w-full">
+      <img src="{% static 'assets\bg.png' %}" alt="background" />
+    </div>
+    <form class="w-full max-w-lg">
+      <div class="flex flex-wrap -mx-3 mb-2">
+        <div class="w-full px-3">
+          <label class="font-karma block tracking-wide text-gray-700 text-sm font-bold mb-2" for="grid-email">Email</label>
+          {{ form.email }}
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mb-2">
+        <div class="w-full px-3">
+          <label class="font-karma block tracking-wide text-gray-700 text-sm font-bold mb-2" for="grid-password">Password</label>
+          {{ form.password }}
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mb-2">
+        <div class="w-full px-3">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Log in</button>
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mb-2 text-center">
+        <div class="w-full px-3">
+          <p class="font-karma font-bold">
+            Don't have an account? <a href="{% url 'signup' %}" class="text-blue-500">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}

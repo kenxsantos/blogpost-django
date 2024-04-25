@@ -24,6 +24,7 @@
                     </div>
                   </div>
                   {% for category in post.categories.all %}
+                    <p class="text-sm mb-2 text-gray-700">Tags:</p>
                     <span class="inline-flex items-center justify-center rounded-full bg-blue-50 px-4 py-2 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10"><a href="{% url 'blog_category' category.name %}">{{ category.name }}</a></span>
                   {% endfor %}
                 </div>
