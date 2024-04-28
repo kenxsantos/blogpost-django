@@ -69,6 +69,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             BASE_DIR / "templates/",
+            BASE_DIR.joinpath("templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -81,8 +82,7 @@ TEMPLATES = [
         },
     },
 ]
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
+
 WSGI_APPLICATION = "django_blogpost.wsgi.application"
 
 

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block page_title %}
-  <div class="container flex items-center justify-center mb-4">
+  <div class="container flex items-center mb-4 justify-center px-40">
     <div class="w-3/4">
       <h2 class="text-5xl font-bold font-karma mb-4">{{ post.title }}</h2>
       <div class="flex items-center mb-3">
@@ -19,7 +19,7 @@
   </div>
 {% endblock %}
 {% block page_content %}
-  <div class="container flex items-center justify-center mb-4">
+  <div class="container flex items-center mb-4 px-40 justify-center">
     <div class="w-3/4">
       <img src="{{ item.image.url }}" alt="" srcset="" />
       <div>

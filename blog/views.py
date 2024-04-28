@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from blog.models import Post, Comment
 from blog.forms import CommentForm
-from .forms import SignupForm, LoginForm
+from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from .models import Post
@@ -58,12 +58,12 @@ def blog_detail(request, pk):
 # signup page
 def user_signup(request):
     if request.method == "POST":
-        form = SignupForm(request.POST)
+        form = SignUpForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect("login")
+            form.save()  # This will save the form data to the database
+            return redirect("login")  # Redirect to login page after successful signup
     else:
-        form = SignupForm()
+        form = SignUpForm()
     return render(request, "registration/signup.html", {"form": form})
 
 
@@ -72,15 +72,17 @@ def user_login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]  # Change username to email
             password = form.cleaned_data["password"]
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(
+                request, email=email, password=password
+            )  # Pass email instead of username
             if user:
                 login(request, user)
                 return redirect("home")
     else:
         form = LoginForm()
-    return render(request, "login.html", {"form": form})
+    return render(request, "registration/login.html", {"form": form})
 
 
 # logout page

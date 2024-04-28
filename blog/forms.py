@@ -16,14 +16,15 @@ class CommentForm(forms.Form):
     )
 
 
-class SignupForm(UserCreationForm):
+class SignUpForm(UserCreationForm):
     first_name = forms.CharField(
         max_length=100,
         widget=forms.TextInput(
             attrs={
                 "class": "font-karma text-black appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
                 "id": "grid-first-name",
-                "type": "text",
+                "name": "first_name",
+                "autocomplete": "given-name",
             }
         ),
     )
@@ -33,7 +34,8 @@ class SignupForm(UserCreationForm):
             attrs={
                 "class": "font-karma text-black appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
                 "id": "grid-last-name",
-                "type": "text",
+                "name": "last_name",
+                "autocomplete": "given-name",
             }
         ),
     )
@@ -43,7 +45,8 @@ class SignupForm(UserCreationForm):
             attrs={
                 "class": "font-karma text-black appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
                 "id": "grid-username",
-                "type": "text",
+                "name": "username",
+                "autocomplete": "given-name",
             }
         ),
     )
@@ -51,8 +54,9 @@ class SignupForm(UserCreationForm):
         widget=forms.EmailInput(
             attrs={
                 "class": "font-karma text-black appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
-                "id": "grid-first-name",
-                "type": "email",
+                "id": "grid-email",
+                "name": "email",
+                "autocomplete": "given-name",
             }
         )
     )
@@ -62,8 +66,8 @@ class SignupForm(UserCreationForm):
             attrs={
                 "class": "font-karma text-black appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
                 "id": "grid-password",
-                "type": "password",
                 "placeholder": "***********",
+                "name": "password",
             }
         ),
     )
@@ -73,8 +77,8 @@ class SignupForm(UserCreationForm):
             attrs={
                 "class": "font-karma text-black appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
                 "id": "grid-confirm-password",
-                "type": "password",
                 "placeholder": "***********",
+                "name": "confirm_password",
             }
         ),
     )
@@ -82,8 +86,8 @@ class SignupForm(UserCreationForm):
         required=False,
         widget=forms.FileInput(
             attrs={
-                "id": "grid-confirm-password",
-                "type": "file",
+                "id": "grid-profile",
+                "name": "profile",
             }
         ),
     )
